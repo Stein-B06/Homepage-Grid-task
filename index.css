@@ -1,12 +1,6 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
 body {
-  margin: 0;
   min-height: 100vh;
-  display: grid;
+  margin: auto;
   background: rgb(114, 76, 191);
   background: linear-gradient(
     0deg,
@@ -16,80 +10,25 @@ body {
   );
 }
 
-:root {
-  --bar-width: 40px;
-  --bar-height: 8px;
-  --hamburger-gap: 4px;
-  --foreground: white;
-  --background: black;
-  --hamburger-margin: 8px;
-  --animation-timing: 300ms ease-in-out;
-  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+.nav {
+  margin-right: 5px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-decoration: none;
 }
 
-.hamburger-menu {
-  --x-width: calc(var(--hamburger-height) * 1.41421356237);
-
-  display: flex;
-  flex-direction: column;
-  gap: var(--hamburger-gap);
-  width: max-content;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 2;
-  cursor: pointer;
+.href {
+  margin-top: 12px;
+  text-align: end;
 }
 
-.hamburger-menu::before,
-.hamburger-menu::after,
-.hamburger-menu input {
-  content: "";
-  width: var(--bar-width);
-  height: var(--bar-height);
-  background-color: var(--foreground);
-  border-radius: 9999px;
-  transform-origin: left center;
-  transition: opacity var(--animation-timing), width var(--animation-timing),
-    rotate var(--animation-timing), translate var(--animation-timing);
+a {
+  text-decoration: none;
+  color: rgb(90, 3, 76);
 }
 
-.hamburger-menu input {
-  appearance: none;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  pointer-events: none;
-}
-
-.hamburger-menu:has(input:checked)::before {
-  rotate: 45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / -2);
-}
-.hamburger-menu:has(input:checked)::after {
-  rotate: -45deg;
-  width: var(--x-width);
-  translate: 0 calc(var(--bar-height) / 2);
-}
-
-.hamburger-menu input:checked {
-  opacity: 0;
-  width: 0;
-}
-
-.sidebar {
-  transition: translate var(--animation-timing);
-  translate: -100%;
-  padding: 0.5rem 1rem;
-  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
-  background-color: var(--foreground);
-  color: var(--background);
-  max-width: 10rem;
-  min-height: 10vh;
-}
-
-.hamburger-menu:has(input:checked) + .sidebar {
+a:hover {
+  color: white;
 }
 
 .container {
@@ -101,14 +40,12 @@ body {
 }
 
 .logo {
+  margin: 12px;
   grid-area: 1 / 1 / 2 / 2;
-  border: 1px solid black;
-  padding: 30px 30px;
 }
+
 .menu {
   grid-area: 1 / 2 / 2 / 4;
-
-  border: 1px solid black;
 }
 .main {
   grid-area: 2 / 1 / 6 / 3;
@@ -125,4 +62,5 @@ body {
 .footer {
   grid-area: 8 / 1 / 10 / 4;
   border: 1px solid black;
+  padding: 10px;
 }
