@@ -1,4 +1,10 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 body {
+  margin: 0;
   min-height: 100vh;
   display: grid;
   background: rgb(114, 76, 191);
@@ -8,6 +14,60 @@ body {
     rgba(191, 141, 195, 1) 37%,
     rgba(145, 226, 232, 1) 100%
   );
+}
+
+:root {
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 5px;
+  --foreground: #333;
+  --background: white;
+  --hamburger-margin: 5px;
+  --animation-timing: 300ms ease-in-out;
+  --haburger-height: ;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 9999px;
+  transform-origin: right center;
+  transition: opacity var(--animation-timing), width var(--animation-timing);
+}
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.hamburger-menu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+}
+.hamburger-menu:has(input:checked)::after {
+  rotate: 45deg;
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
 }
 
 .container {
