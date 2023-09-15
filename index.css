@@ -9,7 +9,7 @@ body {
     rgba(145, 226, 232, 1) 100%
   );
 }
-/*this is the navbar'*/
+
 .nav {
   font-family: "Poppins", sans-serif;
   margin-right: 5px;
@@ -31,7 +31,7 @@ a {
 a:hover {
   color: white;
 }
-/*this is the navbar'*/
+
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -50,7 +50,6 @@ a:hover {
 }
 .main {
   grid-area: 2 / 1 / 6 / 3;
-  border: 1px solid black;
 }
 .main img {
   width: 100%;
@@ -60,18 +59,13 @@ a:hover {
 .aside {
   grid-area: 2 / 3 / 6 / 4;
   text-align: center;
-  border: 1px solid black;
   overflow: hidden;
   color: aliceblue;
   text-shadow: 2px 2px 5px black;
 }
 
-.aside img {
-  width: 100%;
-  height: 100%;
-}
-
 .aside button {
+  border-radius: 25px;
   padding: 5px 10px;
   background-color: rgb(185, 16, 157);
   color: aliceblue;
@@ -90,13 +84,12 @@ a:hover {
 
 .sponsors {
   grid-area: 6 / 1 / 8 / 4;
-  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#sponsor {
+.sponsor {
   width: 100px;
   height: 100px;
   margin: 0px 30px;
@@ -104,7 +97,29 @@ a:hover {
 
 .footer {
   grid-area: 8 / 1 / 10 / 4;
-  border: 1px solid black;
   color: rgb(241, 246, 246);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1440px) {
+  .aside {
+    font-size: 20px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .aside button {
+    max-width: fit-content;
+    margin: 10px auto;
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+  .sponsor {
+    width: 200px;
+    height: 200px;
+  }
 }
