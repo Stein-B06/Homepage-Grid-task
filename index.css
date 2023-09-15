@@ -91,8 +91,20 @@ a:hover {
 .sponsors {
   grid-area: 6 / 1 / 8 / 4;
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#sponsor {
+  width: 100px;
+  height: 100px;
+  margin: 0px 30px;
+}
+
 .footer {
   grid-area: 8 / 1 / 10 / 4;
   border: 1px solid black;
+  color: rgb(241, 246, 246);
+  text-align: center;
 }
